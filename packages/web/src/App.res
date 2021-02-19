@@ -1,4 +1,11 @@
 @react.component
 let make = () => {
-  <div> {"ReScript, React and vite"->React.string} </div>
+  let url = RescriptReactRouter.useUrl()
+
+  let component = switch url.path {
+  | list{} => <Login />
+  | _ => <div> {"Not Found"->React.string} </div>
+  }
+
+  component
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/rescript-lang/rescript-compiler/master/docs/docson/build-schema.json",
-  "name": "shared-components",
+  "name": "@passwdapp/shared-components",
   "reason": {
     "react-jsx": 3
   },
@@ -23,5 +23,5 @@
     "language": "typescript"
   },
 
-  "bs-dependencies": ["@rescript/react"]
+  "bs-dependencies": ["@rescript/react", "rescript-rmwc"]
 }

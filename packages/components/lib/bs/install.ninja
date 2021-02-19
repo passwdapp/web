@@ -1,0 +1,13 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o Logo-PasswdappSharedComponents.cmi : cp ..\bs\src\Logo-PasswdappSharedComponents.cmi
+o Logo-PasswdappSharedComponents.cmj : cp ..\bs\src\Logo-PasswdappSharedComponents.cmj
+o Logo-PasswdappSharedComponents.cmt : cp ..\bs\src\Logo-PasswdappSharedComponents.cmt
+o Logo.res : cp ..\..\src\Logo.res
+o PasswdappSharedComponents.cmi : cp ..\bs\PasswdappSharedComponents.cmi
+o PasswdappSharedComponents.cmj : cp ..\bs\PasswdappSharedComponents.cmj
+o PasswdappSharedComponents.cmt : cp ..\bs\PasswdappSharedComponents.cmt
+build install.stamp : touch Logo-PasswdappSharedComponents.cmi Logo-PasswdappSharedComponents.cmj PasswdappSharedComponents.cmi PasswdappSharedComponents.cmj

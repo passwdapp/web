@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" ] , "pkgs" : [ [ "gentype" , "C:\\akshit\\projects\\passwd\\web\\node_modules\\gentype" ] , [ "rescript-rmwc" , "C:\\akshit\\projects\\passwd\\web\\node_modules\\rescript-rmwc" ] , [ "@rescript\\react" , "C:\\akshit\\projects\\passwd\\web\\node_modules\\@rescript\\react" ] ] , "generated" : [] }

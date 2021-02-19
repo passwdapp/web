@@ -1,6 +1,6 @@
 {
-  "name": "web",
-  "version": "0.0.0",
+  "name": "@passwdapp/web",
+  "version": "0.1.0",
   "scripts": {
     "dev:vite": "vite",
     "dev:res": "bsb -make-world -w",

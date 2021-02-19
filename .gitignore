@@ -13,3 +13,6 @@
 
 # ReScript intellisense outputs
 **/*.merlin
+
+# Logs
+**/*.log

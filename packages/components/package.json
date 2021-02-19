@@ -1,5 +1,5 @@
 {
-  "name": "@passwdapp/components",
+  "name": "@passwdapp/shared-components",
   "version": "0.1.0",
   "description": "Shared components for passwdapp",
   "main": "index.js",
