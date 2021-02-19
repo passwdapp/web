@@ -10,14 +10,17 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@rescript/react": "^0.10.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@rescript/react": "^0.10.1",
     "@vitejs/plugin-react-refresh": "^1.1.0",
+    "autoprefixer": "^10.2.4",
     "bs-platform": "^9.0.1",
     "gentype": "^3.44.0",
+    "postcss": "^8.2.6",
+    "tailwindcss": "^2.0.3",
     "vite": "^2.0.0"
   }
 }

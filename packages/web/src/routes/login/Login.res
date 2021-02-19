@@ -1,4 +1,6 @@
+open PasswdappSharedComponents
+
 @react.component
 let make = () => {
-  <div> {"Login"->React.string} </div>
+  <div> <Logo fontSize="2.5rem" /> </div>
 }

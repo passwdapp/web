@@ -50,3 +50,7 @@ body {
 .logo * {
   font-weight: bold !important;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
