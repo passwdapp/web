@@ -1,0 +1,15 @@
+# Node Modules
+**/node_modules
+
+# Environment files
+**/*.env
+!**/.env.sample
+
+# ReScript output
+**/*.bs.js
+
+# ReScript locks
+**/.bsb.lock
+
+# ReScript intellisense outputs
+**/*.merlin

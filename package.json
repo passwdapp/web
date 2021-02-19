@@ -1,0 +1,13 @@
+{
+  "name": "@passwdapp/monorepo",
+  "version": "0.1.0",
+  "description": "Monorepo for passwd web and extension",
+  "main": "index.js",
+  "repository": "https://github.com/passwdapp/web",
+  "author": "Akshit Garg <garg.akshit@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "workspaces": [
+    "packages/**/*"
+  ]
+}

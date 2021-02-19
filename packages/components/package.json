@@ -1,0 +1,23 @@
+{
+  "name": "@passwdapp/components",
+  "version": "0.1.0",
+  "description": "Shared components for passwdapp",
+  "main": "index.js",
+  "author": "Akshit Garg <garg.akshit@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "scripts": {
+    "start": "bsb -make-world -w",
+    "build": "bsb -make-world",
+    "clean": "bsb -clean-world"
+  },
+  "devDependencies": {
+    "@rescript/react": "^0.10.1",
+    "bs-platform": "^9.0.1",
+    "gentype": "^3.44.0",
+    "rescript-rmwc": "https://github.com/gargakshit/rescript-rmwc"
+  },
+  "dependencies": {
+    "react": "^17.0.1"
+  }
+}
