@@ -23,5 +23,9 @@
     "language": "typescript"
   },
 
-  "bs-dependencies": ["@rescript/react", "@passwdapp/shared-components"]
+  "bs-dependencies": [
+    "@rescript/react",
+    "@passwdapp/shared-components",
+    "rescript-rmwc"
+  ]
 }

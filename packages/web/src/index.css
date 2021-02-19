@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 :root {
   --mdc-typography-font-family: "Montserrat";
 
   --mdc-theme-primary: #00ecd7;
-  --mdc-theme-secondary: #00ecd7;
+  --mdc-theme-secondary: #00afa0;
   --mdc-theme-error: #b00020;
-  --mdc-theme-background: #212121;
-  --mdc-theme-surface: #37474f;
-  --mdc-theme-on-primary: rgba(255, 255, 255, 0.87);
+  --mdc-theme-background: #121212;
+  --mdc-theme-surface: #1e1e1e;
+  --mdc-theme-on-primary: rgba(0, 0, 0, 0.4);
   --mdc-theme-on-secondary: rgba(0, 0, 0, 0.87);
   --mdc-theme-on-surface: rgba(255, 255, 255, 0.87);
   --mdc-theme-on-error: #fff;
@@ -30,6 +30,47 @@
   --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
 }
 
+/* Hacks for MWC ahead */
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-primary) !important;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled),
+.mdc-text-field:not(.mdc-text-field--disabled) * {
+  color: var(--mdc-theme-text-primary-on-dark) !important;
+}
+
+input:not(.mdc-text-field--disabled)::placeholder {
+  color: var(--mdc-theme-text-secondary-on-dark) !important;
+}
+
+.mdc-text-field--fullwidth:not(.mdc-text-field--disabled)
+  .mdc-line-ripple::before {
+  border-bottom-color: var(--mdc-theme-text-primary-on-dark) !important;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) {
+  background-color: var(--mdc-theme-surface) !important;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  border-bottom-color: var(--mdc-theme-text-secondary-on-dark) !important;
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused)
+  .mdc-notched-outline__leading,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused)
+  .mdc-notched-outline__notch,
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused)
+  .mdc-notched-outline__trailing {
+  border-color: rgba(255, 255, 255, 0.38) !important;
+}
+
+.mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__notch {
+  border-right-width: 0px !important;
+  border-left-width: 0px !important;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", "Roboto", sans-serif;
@@ -44,13 +85,11 @@ body {
 }
 
 * {
-  object-fit: border-box;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
 }
 
 .logo * {
   font-weight: bold !important;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
