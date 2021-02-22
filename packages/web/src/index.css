@@ -9,7 +9,7 @@
   --mdc-theme-error: #f01840;
   --mdc-theme-background: #121212;
   --mdc-theme-surface: #1e1e1e;
-  --mdc-theme-on-primary: rgba(0, 0, 0, 0.4);
+  --mdc-theme-on-primary: #fff;
   --mdc-theme-on-secondary: rgba(255, 255, 255, 0.87);
   --mdc-theme-on-surface: rgba(255, 255, 255, 0.87);
   --mdc-theme-on-error: #fff;
@@ -32,6 +32,10 @@
 
 /* Hacks for MWC ahead */
 .mdc-dialog .mdc-dialog__title {
+  color: var(--mdc-theme-on-primary) !important;
+}
+
+.mdc-dialog .mdc-dialog__content {
   color: var(--mdc-theme-on-secondary) !important;
 }
 

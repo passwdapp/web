@@ -6,20 +6,64 @@ module VaultNamePasswordComponent = {
   let make = (~nextPage: unit => unit) => {
     let (_, dispatch) = Reducer.Context.use()
 
+    let (name, setName) = React.useState(_ => "")
+    let (password, setPassword) = React.useState(_ => "")
+
+    let (errorMsg, setErrorMsg) = React.useState(_ => "")
+    let (showError, setShowError) = React.useState(_ => false)
+
+    let checkValidity = () => {
+      let nameValid = name->String.length >= 4
+      let passwordValid = password->String.length >= 8
+
+      if !nameValid {
+        setErrorMsg(_ => "Name should be greater than 4 characters")
+      } else if !passwordValid {
+        setErrorMsg(_ => "Password should be greater than 8 characters")
+      }
+
+      let valid = nameValid && passwordValid
+      setShowError(_ => !valid)
+
+      valid
+    }
+
     <div className="m-6 flex flex-col items-center justify-center">
-      <TextField outlined={true} label={"Vault Name"->React.string} invalid={false} />
+      <Dialog \"open"={showError} renderToPortal={true} onClose={_ => setShowError(_ => false)}>
+        <DialogTitle> {"Error"->React.string} </DialogTitle>
+        <DialogContent> {errorMsg->React.string} </DialogContent>
+        <DialogActions>
+          <DialogButton action="close"> {"OK"->React.string} </DialogButton>
+        </DialogActions>
+      </Dialog>
+      <TextField
+        outlined={true}
+        label={"Vault Name"->React.string}
+        value={name}
+        onChange={event => {
+          setName(_ => ReactEvent.Form.target(event)["value"])
+        }}
+      />
       <div className="mt-4" />
       <TextField
-        outlined={true} \"type"="password" invalid={false} label={"Vault Password"->React.string}
+        outlined={true}
+        \"type"="password"
+        label={"Vault Password"->React.string}
+        value={password}
+        onChange={e => {
+          setPassword(_ => ReactEvent.Form.target(e)["value"])
+        }}
       />
       <div className="mt-6" />
       <Button
         raised={true}
         onClick={() => {
-          dispatch(Actions.SetLoading({loading: true}))
-          // setLoading(_ => true)
-          nextPage()
+          if checkValidity() {
+            dispatch(Actions.SetLoading({loading: true}))
+            nextPage()
+          }
         }}
+        ripple={{surface: None, accent: Some(true), unbounded: None}}
         style={ReactDOM.Style.make(~width="100%", ~color="black", ())}>
         {"Next"->React.string}
       </Button>

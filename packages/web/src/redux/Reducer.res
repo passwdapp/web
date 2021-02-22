@@ -7,8 +7,6 @@ let initialState: store = {
 }
 
 let reducer = (_: store, action: actionType) => {
-  Js.log("Diaptch recv")
-
   switch action {
   | SetLoading({loading}) => {
       loading: loading,
