@@ -1,16 +1,13 @@
 open Actions
+open ReduxTypes
 
-type store = {loading: bool}
-
-let initialState: store = {
-  loading: false,
-}
-
-let reducer = (_: store, action: actionType) => {
+let reducer = (state: store, action: actionType) => {
   switch action {
   | SetLoading({loading}) => {
+      ...state,
       loading: loading,
     }
+  | InitializeVault(initVault) => VaultReducer.reducer(state, initVault)
   }
 }
 

@@ -20,5 +20,5 @@ import "@material/linear-progress/dist/mdc.linear-progress.css";
 let root = ReactDOM.querySelector("#root")
 switch root {
 | None => ()
-| Some(el) => ReactDOM.render(<App />, el)
+| Some(el) => ReactDOM.render(<Reducer.Provider> <App /> </Reducer.Provider>, el)
 }

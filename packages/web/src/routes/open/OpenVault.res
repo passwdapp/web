@@ -1,3 +1,4 @@
+open Promise
 open PasswdappSharedComponents
 open RescriptRmwc.RMWC
 
@@ -59,7 +60,7 @@ module VaultNamePasswordComponent = {
         raised={true}
         onClick={() => {
           if checkValidity() {
-            dispatch(Actions.SetLoading({loading: true}))
+            dispatch(Actions.InitializeVault({name: name, password: password}))
             nextPage()
           }
         }}
