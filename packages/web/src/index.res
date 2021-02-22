@@ -13,6 +13,8 @@ import "@material/button/dist/mdc.button.css";
 import "@rmwc/icon/icon.css";
 import "@material/card/dist/mdc.card.css";
 import "@material/icon-button/dist/mdc.icon-button.css";
+import "@material/dialog/dist/mdc.dialog.css"; 
+import "@material/linear-progress/dist/mdc.linear-progress.css";
 `)
 
 let root = ReactDOM.querySelector("#root")

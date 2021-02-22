@@ -6,11 +6,11 @@
 
   --mdc-theme-primary: #00ecd7;
   --mdc-theme-secondary: #00afa0;
-  --mdc-theme-error: #b00020;
+  --mdc-theme-error: #f01840;
   --mdc-theme-background: #121212;
   --mdc-theme-surface: #1e1e1e;
   --mdc-theme-on-primary: rgba(0, 0, 0, 0.4);
-  --mdc-theme-on-secondary: rgba(0, 0, 0, 0.87);
+  --mdc-theme-on-secondary: rgba(255, 255, 255, 0.87);
   --mdc-theme-on-surface: rgba(255, 255, 255, 0.87);
   --mdc-theme-on-error: #fff;
   --mdc-theme-text-primary-on-background: rgba(255, 255, 255, 1);
@@ -31,16 +31,25 @@
 }
 
 /* Hacks for MWC ahead */
-.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+.mdc-dialog .mdc-dialog__title {
+  color: var(--mdc-theme-on-secondary) !important;
+}
+
+.mdc-dialog .mdc-dialog__scrim {
+  background-color: rgba(0, 0, 0, 0.64) !important;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled):not(.mdc-text-field--invalid)
+  .mdc-floating-label {
   color: var(--mdc-theme-primary) !important;
 }
 
-.mdc-text-field:not(.mdc-text-field--disabled),
-.mdc-text-field:not(.mdc-text-field--disabled) * {
+.mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--invalid),
+.mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--invalid) * {
   color: var(--mdc-theme-text-primary-on-dark) !important;
 }
 
-input:not(.mdc-text-field--disabled)::placeholder {
+input:not(.mdc-text-field--disabled)::not(.mdc-text-field--invalid):placeholder {
   color: var(--mdc-theme-text-secondary-on-dark) !important;
 }
 
@@ -57,11 +66,11 @@ input:not(.mdc-text-field--disabled)::placeholder {
   border-bottom-color: var(--mdc-theme-text-secondary-on-dark) !important;
 }
 
-.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused)
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):not(.mdc-text-field--invalid)
   .mdc-notched-outline__leading,
-.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused)
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):not(.mdc-text-field--invalid)
   .mdc-notched-outline__notch,
-.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused)
+.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):not(.mdc-text-field--invalid)
   .mdc-notched-outline__trailing {
   border-color: rgba(255, 255, 255, 0.38) !important;
 }
@@ -69,6 +78,14 @@ input:not(.mdc-text-field--disabled)::placeholder {
 .mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__notch {
   border-right-width: 0px !important;
   border-left-width: 0px !important;
+}
+
+.mdc-button--outlined:not(:disabled) {
+  border-color: rgba(0, 236, 215, 0.6) !important;
+}
+
+.mdc-button--outlined span.mdc-button__label {
+  color: var(--mdc-theme-primary) !important;
 }
 
 body {

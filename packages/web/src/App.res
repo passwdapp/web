@@ -1,3 +1,5 @@
+open RescriptRmwc.RMWC
+
 @react.component
 let make = () => {
   let url = RescriptReactRouter.useUrl()
@@ -7,5 +9,5 @@ let make = () => {
   | _ => <div> {"Not Found"->React.string} </div>
   }
 
-  component
+  <Reducer.Provider> <Portal /> <LoadingDialog /> component </Reducer.Provider>
 }
