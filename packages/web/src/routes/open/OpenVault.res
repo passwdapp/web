@@ -1,4 +1,3 @@
-open Promise
 open PasswdappSharedComponents
 open RescriptRmwc.RMWC
 
@@ -75,12 +74,23 @@ module VaultNamePasswordComponent = {
 module VaultRestoreStartFresh = {
   @react.component
   let make = () => {
+    let (_, dispatch) = Reducer.Context.use()
+
     <div className="m-6 flex flex-col items-center justify-center">
-      <TextField outlined={true} label={"Paste text backup"->React.string} invalid={false} />
+      <TextField
+        outlined={true}
+        label={"Paste text backup"->React.string}
+        trailingIcon={<IconButton icon="chevron_right" />}
+      />
       <div className="mt-2" />
       <Typography use="subtitle2" tag="span"> {"OR"->React.string} </Typography>
       <div className="mt-2" />
-      <Button outlined={true} style={ReactDOM.Style.make(~width="100%", ~color="black", ())}>
+      <Button
+        outlined={true}
+        style={ReactDOM.Style.make(~width="100%", ~color="black", ())}
+        onClick={() => {
+          dispatch(Actions.FinishVaultSetup)
+        }}>
         {"Start Fresh"->React.string}
       </Button>
     </div>

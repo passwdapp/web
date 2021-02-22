@@ -4,10 +4,17 @@ open ReduxTypes
 let reducer = (state: store, action: actionType) => {
   switch action {
   | SetLoading({loading}) => {
-      ...state,
-      loading: loading,
+      let newState = {
+        ...state,
+        loading: loading,
+      }
+
+      Logger.Redux.action(`SetLoading({loading: ${loading->string_of_bool}})`, state, newState)
+
+      newState
     }
-  | InitializeVault(initVault) => VaultReducer.reducer(state, initVault)
+  | InitializeVault(initVault) => VaultReducer.initializeVaultReducer(state, initVault)
+  | FinishVaultSetup => VaultReducer.finishSetupReducer(state)
   }
 }
 
