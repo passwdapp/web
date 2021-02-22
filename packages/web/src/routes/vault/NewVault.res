@@ -104,7 +104,7 @@ let make = () => {
   <div className="flex flex-col md:flex-row w-full h-full items-center justify-center">
     <div className="flex flex-col items-center md:items-end">
       <Logo fontSize="3rem" />
-      <span className="font-semibold text-xl"> {"Open Vault"->React.string} </span>
+      <span className="font-semibold text-xl"> {"New Vault"->React.string} </span>
       <div className="mt-4" />
     </div>
     <div className="w-0 h-4 md:h-0 md:w-16" />

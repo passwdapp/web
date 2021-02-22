@@ -1,3 +1,4 @@
+open Dom_storage2
 open RescriptRmwc.RMWC
 
 @react.component
@@ -5,18 +6,40 @@ let make = () => {
   let url = RescriptReactRouter.useUrl()
   let (_, dispatch) = Reducer.Context.use()
 
+  let checkVaultStatus = () => {
+    switch localStorage->getItem(Const.storageIdentifiers["setupDone"]) {
+    | None => false
+    | Some(doneString) =>
+      switch doneString->bool_of_string_opt {
+      | None => false
+      | Some(v) =>
+        switch localStorage->getItem(Const.storageIdentifiers["vaultName"]) {
+        | None => false
+        | Some(_) => v
+        }
+      }
+    }
+  }
+
   React.useEffect1(() => {
     dispatch(Actions.SetLoading({loading: true}))
 
     Wasm.initializeWasm(() => {
       dispatch(Actions.SetLoading({loading: false}))
+
+      let path = if checkVaultStatus() {
+        "/unlock-vault"
+      } else {
+        "/new-vault"
+      }
+      RescriptReactRouter.replace(path)
     })
 
     Some(() => ())
   }, [])
 
   let component = switch url.path {
-  | list{} => <OpenVault />
+  | list{"new-vault"} => <NewVault />
   | _ => <div> {"Not Found"->React.string} </div>
   }
 

@@ -7,8 +7,8 @@
   --mdc-theme-primary: #00ecd7;
   --mdc-theme-secondary: #00afa0;
   --mdc-theme-error: #f01840;
-  --mdc-theme-background: #121212;
-  --mdc-theme-surface: #1e1e1e;
+  --mdc-theme-background: #181818;
+  --mdc-theme-surface: #212121;
   --mdc-theme-on-primary: #fff;
   --mdc-theme-on-secondary: rgba(255, 255, 255, 0.87);
   --mdc-theme-on-surface: rgba(255, 255, 255, 0.87);
@@ -101,7 +101,7 @@ body {
 
 #root {
   height: 100vh;
-  background-color: #121212;
+  background-color: #181818;
   color: white;
 }
 
