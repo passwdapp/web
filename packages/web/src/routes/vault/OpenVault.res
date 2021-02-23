@@ -46,7 +46,9 @@ module OpenVaultRight = {
               setErrorMsg(_ => "Entered password is not valid")
               setShowError(_ => true)
             } else {
-              deriveAndDispatchVaultKey()
+              let _ = Js.Global.setTimeout(() => {
+                deriveAndDispatchVaultKey()
+              }, 500)
             }
 
             resolve(ans)

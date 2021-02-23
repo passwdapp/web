@@ -27,8 +27,6 @@ let initializeVaultReducer = (state: ReduxTypes.store, action: Actions.initializ
     newState,
   )
 
-  RescriptReactRouter.replace("/unlock-vault")
-
   newState
 }
 
@@ -36,6 +34,7 @@ let finishSetupReducer = (state: ReduxTypes.store) => {
   localStorage->setItem(storageIdentifiers["setupDone"], true->string_of_bool)
 
   Logger.Redux.action("FinishSetup()", state, state)
+  RescriptReactRouter.replace("/unlock-vault")
 
   state
 }
