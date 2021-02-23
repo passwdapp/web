@@ -1,10 +1,11 @@
-type vault = {name: string, password: string}
-type store = {loading: bool, vault: vault}
+type store = {
+  loading: bool,
+  vaultName: string,
+  vaultKey: Js.TypedArray2.Uint8Array.t,
+}
 
 let initialState: store = {
   loading: false,
-  vault: {
-    name: "",
-    password: "",
-  },
+  vaultName: "",
+  vaultKey: Js.TypedArray2.Uint8Array.make([]),
 }

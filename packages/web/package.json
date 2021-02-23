@@ -17,7 +17,6 @@
     "rescript-rmwc": "https://github.com/gargakshit/rescript-rmwc"
   },
   "devDependencies": {
-    "@rescript/react": "^0.10.1",
     "@vitejs/plugin-react-refresh": "^1.1.0",
     "autoprefixer": "^10.2.4",
     "bs-platform": "^9.0.1",

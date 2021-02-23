@@ -18,10 +18,7 @@ let initializeVaultReducer = (state: ReduxTypes.store, action: Actions.initializ
 
   let newState = {
     ...state,
-    vault: {
-      name: name,
-      password: password,
-    },
+    vaultName: name,
   }
 
   Logger.Redux.action(
@@ -29,6 +26,8 @@ let initializeVaultReducer = (state: ReduxTypes.store, action: Actions.initializ
     state,
     newState,
   )
+
+  RescriptReactRouter.replace("/unlock-vault")
 
   newState
 }
@@ -39,4 +38,34 @@ let finishSetupReducer = (state: ReduxTypes.store) => {
   Logger.Redux.action("FinishSetup()", state, state)
 
   state
+}
+
+let openVaultReducer = (state: ReduxTypes.store, action: Actions.openVault) => {
+  let {name} = action
+
+  let newState = {
+    ...state,
+    vaultName: name,
+  }
+
+  Logger.Redux.action(`OpenVault({name: "${name}"})`, state, newState)
+
+  newState
+}
+
+let setVaultKeyReducer = (state: ReduxTypes.store, action: Actions.setVaultKey) => {
+  let {key} = action
+
+  let newState = {
+    ...state,
+    vaultKey: key,
+  }
+
+  Logger.Redux.action(
+    `SetVaultKey({key: "${key->Js.TypedArray2.Uint8Array.toString}"})`,
+    state,
+    newState,
+  )
+
+  newState
 }

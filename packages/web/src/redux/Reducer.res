@@ -15,6 +15,8 @@ let reducer = (state: store, action: actionType) => {
     }
   | InitializeVault(initVault) => VaultReducer.initializeVaultReducer(state, initVault)
   | FinishVaultSetup => VaultReducer.finishSetupReducer(state)
+  | OpenVault(openVault) => VaultReducer.openVaultReducer(state, openVault)
+  | SetVaultKey(setVaultKey) => VaultReducer.setVaultKeyReducer(state, setVaultKey)
   }
 }
 

@@ -15,7 +15,10 @@ let make = () => {
       | Some(v) =>
         switch localStorage->getItem(Const.storageIdentifiers["vaultName"]) {
         | None => false
-        | Some(_) => v
+        | Some(name) => {
+            dispatch(Actions.OpenVault({name: name}))
+            v
+          }
         }
       }
     }
@@ -40,6 +43,7 @@ let make = () => {
 
   let component = switch url.path {
   | list{"new-vault"} => <NewVault />
+  | list{"unlock-vault"} => <OpenVault />
   | _ => <div> {"Not Found"->React.string} </div>
   }
 
