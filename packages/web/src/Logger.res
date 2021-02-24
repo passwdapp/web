@@ -2,13 +2,14 @@ open Belt
 
 @val external group: string => unit = "console.group"
 @val external groupEnd: unit => unit = "console.groupEnd"
+@val external isDev: bool = "import.meta.env.DEV"
 
 let logPrefix = "[Passwd] "
 
 let info = (msg: string) => Js.log(logPrefix ++ "[INFO] " ++ msg)
 
 module Redux = {
-  // Thanks https://github.com/Zaelot-Inc/use-reducer-logger/blob/master/srhfl.js
+  // Thanks to https://github.com/Zaelot-Inc/use-reducer-logger/blob/master/srhfl.js
   let getCurrentTimeFormatted = () => {
     let date = Js.Date.make()
 
@@ -25,12 +26,14 @@ module Redux = {
   }
 
   let action = (actionMsg: string, oldState: ReduxTypes.store, newState: ReduxTypes.store) => {
-    group(`Action ${buildActionType(actionMsg)} at ${getCurrentTimeFormatted()}`)
+    if isDev {
+      group(`Action ${buildActionType(actionMsg)} at ${getCurrentTimeFormatted()}`)
 
-    Js.Console.log3("%cPrevious State:", "color: #f01840; font-weight: 700;", oldState)
-    Js.Console.log3("%cAction:", "color: #00a7f7; font-weight: 700;", actionMsg)
-    Js.Console.log3("%cNext State:", "color: #47b04b; font-weight: 700;", newState)
+      Js.Console.log3("%cPrevious State:", "color: #f01840; font-weight: 700;", oldState)
+      Js.Console.log3("%cAction:", "color: #00a7f7; font-weight: 700;", actionMsg)
+      Js.Console.log3("%cNext State:", "color: #47b04b; font-weight: 700;", newState)
 
-    groupEnd()
+      groupEnd()
+    }
   }
 }
